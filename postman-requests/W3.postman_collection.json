@@ -1,0 +1,286 @@
+{
+	"info": {
+		"_postman_id": "6e7cadc3-951f-4a26-bf92-8450522bf96b",
+		"name": "W3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create customer person",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"documentType\": \"DNI\",\r\n    \"documentNumber\": \"70682463\",\r\n    \"name\": \"Brayan\",\r\n    \"lastName\": \"La Cruz\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/customer/person/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customer",
+						"person",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create business person",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ruc\": \"20154578521\",\r\n    \"businessName\": \"NTT Data Bootcamp SAC\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/customer/business/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customer",
+						"business",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find by Document",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/customer/person/findByDocument/DNI/70682463",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customer",
+						"person",
+						"findByDocument",
+						"DNI",
+						"70682463"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find by RUC",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/customer/business/findByRuc/20154578521",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customer",
+						"business",
+						"findByRuc",
+						"20154578521"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SA - Create saving account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customerId\": \"626333b0a6373131d955d0f1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/savingAccounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"savingAccounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SA - Get Balance by account",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/savingAccounts/balance/6266d3a1cd5ea9337ca00ad6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"savingAccounts",
+						"balance",
+						"6266d3a1cd5ea9337ca00ad6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SA - Get Balance by customer",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/savingAccounts/balance/byCustomer/626333b0a6373131d955d0f1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"savingAccounts",
+						"balance",
+						"byCustomer",
+						"626333b0a6373131d955d0f1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SA - Create transaction (deposit)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accountId\": \"6266d3a1cd5ea9337ca00ad6\",\r\n    \"agent\": \"BCP Huacho - CAJ021\",\r\n    \"description\": \"Depósito ventanilla\",\r\n    \"amount\": 500\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/savingAccounts/transaction",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"savingAccounts",
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SA - Create transaction (withdrawal)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accountId\": \"6266d3a1cd5ea9337ca00ad6\",\r\n    \"agent\": \"Cajero 001 PLZSOL\",\r\n    \"description\": \"Retiro de cajero\",\r\n    \"amount\": -100\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/savingAccounts/transaction",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"savingAccounts",
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SA - Get Movements",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/savingAccounts/movements/6266d3a1cd5ea9337ca00ad6/2022/04",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"savingAccounts",
+						"movements",
+						"6266d3a1cd5ea9337ca00ad6",
+						"2022",
+						"04"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
